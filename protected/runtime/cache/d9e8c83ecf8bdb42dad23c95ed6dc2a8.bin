@@ -1,0 +1,81 @@
+a:2:{i:0;a:2:{i:0;s:4305:"<p><h3></h3></p><link rel="stylesheet" type="text/css" href="/etagsms/themes/monk/css/widgets/gridview/styles.css" />
+<link rel="stylesheet" type="text/css" href="/etagsms/assets/8e8e37c5/pager.css" />
+<link rel="stylesheet" type="text/css" href="/etagsms/assets/bf058441/jui/css/base/jquery-ui.css" />
+<script type="text/javascript" src="/etagsms/assets/bf058441/jquery.min.js"></script>
+<script type="text/javascript" src="/etagsms/assets/bf058441/jquery.ba-bbq.js"></script>
+
+<div id='addnew' style='float:right; text-align: right; width: 40%'><a onClick="ajaxFormSubmit(&#039;/etagsms/index.php?r=automated/create&amp;view=Definition_form&amp;token=&#039;,&#039;hybridgrid-Definition_hybridgrid&#039;,&#039;Definition_form&#039;);" href="#hybrid">Add New</a></div><div id="Definition_hybridgrid" class="grid-view">
+<div class="summary">Displaying 1-1 of 1 result(s).</div>
+<table class="items">
+<thead>
+<tr>
+<th id="Definition_hybridgrid_c5096"><a href="/etagsms/index.php?r=definition/index&amp;id=11&amp;ajax=Process_hybridgrid&amp;Definition_sort=service_name">Name</a></th><th id="Definition_hybridgrid_c5095"><a href="/etagsms/index.php?r=definition/index&amp;id=11&amp;ajax=Process_hybridgrid&amp;Definition_sort=description">Description</a></th><th id="Definition_hybridgrid_c5094"><a href="/etagsms/index.php?r=definition/index&amp;id=11&amp;ajax=Process_hybridgrid&amp;Definition_sort=service_flag">Status</a></th><th id="Definition_hybridgrid_c5099"><a href="/etagsms/index.php?r=definition/index&amp;id=11&amp;ajax=Process_hybridgrid&amp;Definition_sort=id"></a></th></tr>
+<tr class="filters">
+<td><input name="Definition[service_name]" type="text" maxlength="200" /></td><td><input name="Definition[description]" type="text" /></td><td><input name="Definition[service_flag]" type="text" /></td><td><input name="Definition[id]" type="text" /></td></tr>
+</thead>
+<tbody>
+<tr class="odd"><td>Maureen Mbodze Matai&nbsp;</td><td>SMS broadcast to share good news of the coming of Baby Maureen Mbodze Matai.&nbsp;</td><td>1&nbsp;</td><td><a onClick="hyBridGrid(&#039;http://localhost/etagsms/index.php?r=automated/view&#039;,&#039;hybridgrid-Definition_hybridgrid&#039;,&#039;Definition&#039;,11);" href="#hybrid"><img src="images/view.png" alt="view" /></a><a onClick="hyBridGrid(&#039;http://localhost/etagsms/index.php?r=automated/update&#039;,&#039;hybridgrid-Definition_hybridgrid&#039;,&#039;Definition_form&#039;,11);" href="#hybrid"><img src="images/update.png" alt="update" /></a><a onclick="$(&quot;#dialog-id&quot;).dialog(&quot;open&quot;); deleteDialogMessage(&quot;http://localhost/etagsms/index.php?r=automated/delete&quot;,&quot;dialog-content&quot;,&quot;Definition&quot;,&quot;11&quot;); return false;" href="#"><img src="images/delete.png" alt="delete" /></a>&nbsp;</td></tr>
+</tbody>
+</table>
+<div class="keys" style="display:none" title="/etagsms/index.php?r=definition%2Findex&amp;id=11&amp;ajax=Process_hybridgrid"><span>11</span></div>
+</div>
+<a name="hybrid">
+    <div id="hybridgrid-Definition_hybridgrid" class="hybridgrid">
+        
+    </div>
+</a>
+
+
+<div id="dialog-Definition_hybridgrid">
+<div id="dialog-content">  </div></div>
+<script language='javascript'>
+//var int=setInterval('updateGridView()',5000);
+function updateGridView(parent_id)
+{   
+$.fn.yiiGridView.update(parent_id, {   
+data: $(this).serialize()
+});  
+}
+
+function closeDialogBox(parent_id){
+      
+    $("#dialog-"+parent_id).dialog('close');
+}
+   
+
+</script>
+
+
+
+<script type="text/javascript" src="/etagsms/assets/70c96da8/gridview/jquery.yiigridview.js"></script>
+<script type="text/javascript" src="/etagsms/assets/bf058441/jui/js/jquery-ui.min.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery('#Definition_hybridgrid').yiiGridView({'ajaxUpdate':['Definition_hybridgrid'],'ajaxVar':'ajax','pagerClass':'pager','loadingClass':'grid-view-loading','filterClass':'filters','tableClass':'items','selectableRows':1,'pageVar':'Definition_page'});
+jQuery('#dialog-Definition_hybridgrid').dialog({'title':'Confirm Delete','autoOpen':false});
+
+$('.search-button').click(function(){
+	$('.search-form').toggle();
+	return false;
+});
+$('.search-form form').submit(function(){
+	$.fn.yiiGridView.update('register-grid', {
+		data: $(this).serialize()
+	});
+	return false;
+});
+
+/*]]>*/
+</script>
+";i:1;a:10:{i:0;a:3:{i:0;s:12:"clientScript";i:1;s:15:"registerCssFile";i:2;a:1:{i:0;s:52:"/etagsms/themes/monk/css/widgets/gridview/styles.css";}}i:1;a:3:{i:0;s:12:"clientScript";i:1;s:18:"registerCoreScript";i:2;a:1:{i:0;s:6:"jquery";}}i:2;a:3:{i:0;s:12:"clientScript";i:1;s:18:"registerCoreScript";i:2;a:1:{i:0;s:3:"bbq";}}i:3;a:3:{i:0;s:12:"clientScript";i:1;s:18:"registerScriptFile";i:2;a:2:{i:0;s:55:"/etagsms/assets/70c96da8/gridview/jquery.yiigridview.js";i:1;i:2;}}i:4;a:3:{i:0;s:12:"clientScript";i:1;s:14:"registerScript";i:2;a:2:{i:0;s:31:"CGridView#Definition_hybridgrid";i:1;s:252:"jQuery('#Definition_hybridgrid').yiiGridView({'ajaxUpdate':['Definition_hybridgrid'],'ajaxVar':'ajax','pagerClass':'pager','loadingClass':'grid-view-loading','filterClass':'filters','tableClass':'items','selectableRows':1,'pageVar':'Definition_page'});";}}i:5;a:3:{i:0;s:12:"clientScript";i:1;s:15:"registerCssFile";i:2;a:1:{i:0;s:34:"/etagsms/assets/8e8e37c5/pager.css";}}i:6;a:3:{i:0;s:12:"clientScript";i:1;s:15:"registerCssFile";i:2;a:1:{i:0;s:51:"/etagsms/assets/bf058441/jui/css/base/jquery-ui.css";}}i:7;a:3:{i:0;s:12:"clientScript";i:1;s:18:"registerScriptFile";i:2;a:2:{i:0;s:48:"/etagsms/assets/bf058441/jui/js/jquery-ui.min.js";i:1;i:2;}}i:8;a:3:{i:0;s:12:"clientScript";i:1;s:14:"registerScript";i:2;a:2:{i:0;s:39:"CJuiDialog#dialog-Definition_hybridgrid";i:1;s:92:"jQuery('#dialog-Definition_hybridgrid').dialog({'title':'Confirm Delete','autoOpen':false});";}}i:9;a:3:{i:0;s:12:"clientScript";i:1;s:14:"registerScript";i:2;a:2:{i:0;s:6:"search";i:1;s:225:"
+$('.search-button').click(function(){
+	$('.search-form').toggle();
+	return false;
+});
+$('.search-form form').submit(function(){
+	$.fn.yiiGridView.update('register-grid', {
+		data: $(this).serialize()
+	});
+	return false;
+});
+";}}}}i:1;N;}

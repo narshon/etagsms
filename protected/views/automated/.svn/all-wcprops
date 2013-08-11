@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/etagsms/!svn/ver/4/branch/protected/views/automated
+END
+list.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/etagsms/!svn/ver/4/branch/protected/views/automated/list.php
+END
+_genericWidget.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/etagsms/!svn/ver/4/branch/protected/views/automated/_genericWidget.php
+END
+editablegrid.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/etagsms/!svn/ver/4/branch/protected/views/automated/editablegrid.php
+END
+_form.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/etagsms/!svn/ver/4/branch/protected/views/automated/_form.php
+END
+detail.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/etagsms/!svn/ver/4/branch/protected/views/automated/detail.php
+END
+form.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/etagsms/!svn/ver/4/branch/protected/views/automated/form.php
+END
+verify.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/etagsms/!svn/ver/4/branch/protected/views/automated/verify.php
+END
+grid.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/etagsms/!svn/ver/4/branch/protected/views/automated/grid.php
+END
+hybridgrid.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/etagsms/!svn/ver/4/branch/protected/views/automated/hybridgrid.php
+END

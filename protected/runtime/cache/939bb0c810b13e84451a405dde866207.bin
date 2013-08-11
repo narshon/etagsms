@@ -1,0 +1,87 @@
+a:2:{i:0;a:2:{i:0;s:7940:"<p><h3>Manage Processes</h3></p><link rel="stylesheet" type="text/css" href="/etagsms/themes/monk/css/widgets/gridview/styles.css" />
+<link rel="stylesheet" type="text/css" href="/etagsms/assets/8e8e37c5/pager.css" />
+<link rel="stylesheet" type="text/css" href="/etagsms/assets/bf058441/jui/css/base/jquery-ui.css" />
+<script type="text/javascript" src="/etagsms/assets/bf058441/jquery.min.js"></script>
+<script type="text/javascript" src="/etagsms/assets/bf058441/jquery.ba-bbq.js"></script>
+
+<div id='addnew' style='float:right; text-align: right; width: 40%'><a onClick="ajaxFormSubmit(&#039;/etagsms/index.php?r=automated/create&amp;view=Process_form&amp;token=&#039;,&#039;hybridgrid-Process_hybridgrid&#039;,&#039;Process_form&#039;);" href="#hybrid">Add New</a></div><div id="Process_hybridgrid" class="grid-view">
+<div class="summary">Displaying 1-5 of 5 result(s).</div>
+<table class="items">
+<thead>
+<tr>
+<th id="Process_hybridgrid_c5130"><a href="/etagsms/index.php?r=definition/index&amp;Process_sort=sysdef_id">Category</a></th><th id="Process_hybridgrid_c5131"><a href="/etagsms/index.php?r=definition/index&amp;Process_sort=sub_categ">Process Title</a></th><th id="Process_hybridgrid_c5132"><a href="/etagsms/index.php?r=definition/index&amp;Process_sort=in_text">In Text (Key word)</a></th><th id="Process_hybridgrid_c5134"><a href="/etagsms/index.php?r=definition/index&amp;Process_sort=out_msg">Default Message</a></th><th id="Process_hybridgrid_c5141"><a href="/etagsms/index.php?r=definition/index&amp;Process_sort=id"></a></th></tr>
+<tr class="filters">
+<td><input name="Process[sysdef_id]" type="text" /></td><td><input name="Process[sub_categ]" type="text" maxlength="500" /></td><td><input name="Process[in_text]" type="text" maxlength="50" /></td><td><input name="Process[out_msg]" type="text" /></td><td><input name="Process[id]" type="text" /></td></tr>
+</thead>
+<tbody>
+<tr class="odd"><td>core&nbsp;</td><td>smsreceiver&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><a onClick="hyBridGrid(&#039;http://localhost/etagsms/index.php?r=automated/view&#039;,&#039;hybridgrid-Process_hybridgrid&#039;,&#039;Process&#039;,24);" href="#hybrid"><img src="images/view.png" alt="view" /></a><a onClick="hyBridGrid(&#039;http://localhost/etagsms/index.php?r=automated/update&#039;,&#039;hybridgrid-Process_hybridgrid&#039;,&#039;Process_form&#039;,24);" href="#hybrid"><img src="images/update.png" alt="update" /></a><a onclick="$(&quot;#dialog-id&quot;).dialog(&quot;open&quot;); deleteDialogMessage(&quot;http://localhost/etagsms/index.php?r=automated/delete&quot;,&quot;dialog-content&quot;,&quot;Process&quot;,&quot;24&quot;); return false;" href="#"><img src="images/delete.png" alt="delete" /></a>&nbsp;</td></tr>
+<tr class="even"><td>core&nbsp;</td><td>smssender&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><a onClick="hyBridGrid(&#039;http://localhost/etagsms/index.php?r=automated/view&#039;,&#039;hybridgrid-Process_hybridgrid&#039;,&#039;Process&#039;,25);" href="#hybrid"><img src="images/view.png" alt="view" /></a><a onClick="hyBridGrid(&#039;http://localhost/etagsms/index.php?r=automated/update&#039;,&#039;hybridgrid-Process_hybridgrid&#039;,&#039;Process_form&#039;,25);" href="#hybrid"><img src="images/update.png" alt="update" /></a><a onclick="$(&quot;#dialog-id&quot;).dialog(&quot;open&quot;); deleteDialogMessage(&quot;http://localhost/etagsms/index.php?r=automated/delete&quot;,&quot;dialog-content&quot;,&quot;Process&quot;,&quot;25&quot;); return false;" href="#"><img src="images/delete.png" alt="delete" /></a>&nbsp;</td></tr>
+<tr class="odd"><td>core&nbsp;</td><td>emailreceiver&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><a onClick="hyBridGrid(&#039;http://localhost/etagsms/index.php?r=automated/view&#039;,&#039;hybridgrid-Process_hybridgrid&#039;,&#039;Process&#039;,26);" href="#hybrid"><img src="images/view.png" alt="view" /></a><a onClick="hyBridGrid(&#039;http://localhost/etagsms/index.php?r=automated/update&#039;,&#039;hybridgrid-Process_hybridgrid&#039;,&#039;Process_form&#039;,26);" href="#hybrid"><img src="images/update.png" alt="update" /></a><a onclick="$(&quot;#dialog-id&quot;).dialog(&quot;open&quot;); deleteDialogMessage(&quot;http://localhost/etagsms/index.php?r=automated/delete&quot;,&quot;dialog-content&quot;,&quot;Process&quot;,&quot;26&quot;); return false;" href="#"><img src="images/delete.png" alt="delete" /></a>&nbsp;</td></tr>
+<tr class="even"><td>core&nbsp;</td><td>emailsender&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><a onClick="hyBridGrid(&#039;http://localhost/etagsms/index.php?r=automated/view&#039;,&#039;hybridgrid-Process_hybridgrid&#039;,&#039;Process&#039;,27);" href="#hybrid"><img src="images/view.png" alt="view" /></a><a onClick="hyBridGrid(&#039;http://localhost/etagsms/index.php?r=automated/update&#039;,&#039;hybridgrid-Process_hybridgrid&#039;,&#039;Process_form&#039;,27);" href="#hybrid"><img src="images/update.png" alt="update" /></a><a onclick="$(&quot;#dialog-id&quot;).dialog(&quot;open&quot;); deleteDialogMessage(&quot;http://localhost/etagsms/index.php?r=automated/delete&quot;,&quot;dialog-content&quot;,&quot;Process&quot;,&quot;27&quot;); return false;" href="#"><img src="images/delete.png" alt="delete" /></a>&nbsp;</td></tr>
+<tr class="odd"><td>core&nbsp;</td><td>messageProcessor&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><a onClick="hyBridGrid(&#039;http://localhost/etagsms/index.php?r=automated/view&#039;,&#039;hybridgrid-Process_hybridgrid&#039;,&#039;Process&#039;,28);" href="#hybrid"><img src="images/view.png" alt="view" /></a><a onClick="hyBridGrid(&#039;http://localhost/etagsms/index.php?r=automated/update&#039;,&#039;hybridgrid-Process_hybridgrid&#039;,&#039;Process_form&#039;,28);" href="#hybrid"><img src="images/update.png" alt="update" /></a><a onclick="$(&quot;#dialog-id&quot;).dialog(&quot;open&quot;); deleteDialogMessage(&quot;http://localhost/etagsms/index.php?r=automated/delete&quot;,&quot;dialog-content&quot;,&quot;Process&quot;,&quot;28&quot;); return false;" href="#"><img src="images/delete.png" alt="delete" /></a>&nbsp;</td></tr>
+</tbody>
+</table>
+<div class="keys" style="display:none" title="/etagsms/index.php?r=definition/index"><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span></div>
+</div>
+<a name="hybrid">
+    <div id="hybridgrid-Process_hybridgrid" class="hybridgrid">
+        
+    </div>
+</a>
+
+
+<div id="dialog-Process_hybridgrid">
+<div id="dialog-content">  </div></div>
+<script language='javascript'>
+//var int=setInterval('updateGridView()',5000);
+function updateGridView(parent_id)
+{   
+$.fn.yiiGridView.update(parent_id, {   
+data: $(this).serialize()
+});  
+}
+
+function closeDialogBox(parent_id){
+      
+    $("#dialog-"+parent_id).dialog('close');
+}
+   
+
+</script>
+
+
+
+<script type="text/javascript" src="/etagsms/assets/70c96da8/gridview/jquery.yiigridview.js"></script>
+<script type="text/javascript" src="/etagsms/assets/bf058441/jui/js/jquery-ui.min.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery('#Definition_hybridgrid').yiiGridView({'ajaxUpdate':['Definition_hybridgrid'],'ajaxVar':'ajax','pagerClass':'pager','loadingClass':'grid-view-loading','filterClass':'filters','tableClass':'items','selectableRows':1,'pageVar':'Definition_page'});
+jQuery('#dialog-Definition_hybridgrid').dialog({'title':'Confirm Delete','autoOpen':false});
+
+$('.search-button').click(function(){
+	$('.search-form').toggle();
+	return false;
+});
+$('.search-form form').submit(function(){
+	$.fn.yiiGridView.update('register-grid', {
+		data: $(this).serialize()
+	});
+	return false;
+});
+
+jQuery('#Process_hybridgrid').yiiGridView({'ajaxUpdate':['Process_hybridgrid'],'ajaxVar':'ajax','pagerClass':'pager','loadingClass':'grid-view-loading','filterClass':'filters','tableClass':'items','selectableRows':1,'pageVar':'Process_page'});
+jQuery('#dialog-Process_hybridgrid').dialog({'title':'Confirm Delete','autoOpen':false});
+/*]]>*/
+</script>
+";i:1;a:8:{i:0;a:3:{i:0;s:12:"clientScript";i:1;s:15:"registerCssFile";i:2;a:1:{i:0;s:52:"/etagsms/themes/monk/css/widgets/gridview/styles.css";}}i:1;a:3:{i:0;s:12:"clientScript";i:1;s:18:"registerScriptFile";i:2;a:2:{i:0;s:55:"/etagsms/assets/70c96da8/gridview/jquery.yiigridview.js";i:1;i:2;}}i:2;a:3:{i:0;s:12:"clientScript";i:1;s:14:"registerScript";i:2;a:2:{i:0;s:28:"CGridView#Process_hybridgrid";i:1;s:243:"jQuery('#Process_hybridgrid').yiiGridView({'ajaxUpdate':['Process_hybridgrid'],'ajaxVar':'ajax','pagerClass':'pager','loadingClass':'grid-view-loading','filterClass':'filters','tableClass':'items','selectableRows':1,'pageVar':'Process_page'});";}}i:3;a:3:{i:0;s:12:"clientScript";i:1;s:15:"registerCssFile";i:2;a:1:{i:0;s:34:"/etagsms/assets/8e8e37c5/pager.css";}}i:4;a:3:{i:0;s:12:"clientScript";i:1;s:15:"registerCssFile";i:2;a:1:{i:0;s:51:"/etagsms/assets/bf058441/jui/css/base/jquery-ui.css";}}i:5;a:3:{i:0;s:12:"clientScript";i:1;s:18:"registerScriptFile";i:2;a:2:{i:0;s:48:"/etagsms/assets/bf058441/jui/js/jquery-ui.min.js";i:1;i:2;}}i:6;a:3:{i:0;s:12:"clientScript";i:1;s:14:"registerScript";i:2;a:2:{i:0;s:36:"CJuiDialog#dialog-Process_hybridgrid";i:1;s:89:"jQuery('#dialog-Process_hybridgrid').dialog({'title':'Confirm Delete','autoOpen':false});";}}i:7;a:3:{i:0;s:12:"clientScript";i:1;s:14:"registerScript";i:2;a:2:{i:0;s:6:"search";i:1;s:225:"
+$('.search-button').click(function(){
+	$('.search-form').toggle();
+	return false;
+});
+$('.search-form form').submit(function(){
+	$.fn.yiiGridView.update('register-grid', {
+		data: $(this).serialize()
+	});
+	return false;
+});
+";}}}}i:1;O:18:"CDbCacheDependency":7:{s:12:"connectionID";s:2:"db";s:3:"sql";s:31:"SELECT MAX(id) FROM sys_process";s:6:"params";N;s:23:" CDbCacheDependency _db";N;s:23:" CCacheDependency _data";a:1:{s:7:"MAX(id)";s:2:"57";}s:14:" CComponent _e";N;s:14:" CComponent _m";N;}}

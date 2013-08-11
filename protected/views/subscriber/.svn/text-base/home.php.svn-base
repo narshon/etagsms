@@ -1,0 +1,20 @@
+<p>&nbsp;</p>
+<div id="home-title"><h3> Welcome to Forum Syd SMS Portal </h3></div>
+<div id="home-summary">
+<?php
+ // set active campaign for this user
+if($id){
+    Definition::model()->setCurrentCampaign($id);
+    $criteria = new CDBCriteria();
+    $criteria->condition = "id = $id";
+    $this->service=new ServiceComponent($this,"Subscriber");
+    $this->service->showListView($criteria,"Campaign_summary","");
+}
+else{
+    Definition::model()->setCurrentCampaign();
+    echo "<h5> Please select a campaign to proceed.";
+}
+  
+
+?>
+</div>

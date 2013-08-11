@@ -1,0 +1,358 @@
+<?php
+
+/**
+ * This is the model class for table "tbl_users".
+ *
+ * The followings are the available columns in table 'tbl_users':
+ * @property integer $id
+ * @property string $usergroup
+ * @property string $username
+ * @property string $pass
+ * @property string $name1
+ * @property string $name2
+ * @property string $name3
+ * @property string $email
+ * @property string $phone
+ * @property string $address
+ */
+class Users extends CActiveRecord
+{
+
+/**
+ * @var integer id
+ * @soap
+*/
+public  $id;
+
+/**
+ * @var string usergroup
+ * @soap
+*/
+public  $usergroup;
+
+/**
+ * @var string username
+ * @soap
+*/
+public  $username;
+
+/**
+ * @var string pass
+ * @soap
+*/
+public  $pass;
+
+/**
+ * @var string name1
+ * @soap
+*/
+public  $name1;
+
+/**
+ * @var string name2
+ * @soap
+*/
+public  $name2;
+
+/**
+ * @var string name3
+ * @soap
+*/
+public  $name3;
+
+/**
+ * @var string email
+ * @soap
+*/
+public  $email;
+
+/**
+ * @var string phone
+ * @soap
+*/
+public  $phone;
+
+/**
+ * @var string address
+ * @soap
+*/
+public  $address;
+
+
+private $datahelper;
+         
+         /*
+         * Constructor - setting up datahelper object
+         *
+         */
+         public function __construct($scenario = 'insert',$dh=true){
+               if($dh)
+                $this->datahelper = new DataHelper('Users','sys_users');
+                
+                parent::__construct($scenario);
+         }
+         
+	/**
+	 * Returns the static model of the specified AR class.
+	 * @return Users the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
+	}
+        
+        
+        
+	/**
+	 * @return string the associated database table name
+	 */
+	public function tableName()
+	{       
+		return 'sys_users';
+	}
+
+	/**
+	 * @return array validation rules for model attributes.
+	 */
+	public function rules()
+	{
+		// NOTE: you should only define rules for those attributes that
+		// will receive user inputs.
+                return array_merge($this->datahelper->getModelRules(),$this->datahelper->getModelSkipPatterns()); 
+		
+	}
+
+	/**
+	 * @return array relational rules.
+	 */
+	public function relations()
+	{
+		
+		 return $this->datahelper->getModelRelations();
+		
+	}
+
+	/**
+	 * @return array customized attribute labels (name=>label)
+	 */
+	public function attributeLabels()
+	{
+		
+          			         			         			         			         			         			         			         			         			         			                  
+         return $this->datahelper->getModelAttributes();
+	}
+
+	/**
+	 * Retrieves a list of models based on the current search/filter conditions.
+	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+	 */
+	public function search($filter = array())
+	{
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
+
+		$criteria=new CDbCriteria;
+
+                $strings=$this->datahelper->getModelSearch();
+                foreach($strings as $str){
+                   //explode params
+                   $params=explode(",",$str->params);
+                   if($str->method=="compare"){
+                      $name=trim($params[0]);
+                      if(isset($params[1]))
+                      $criteria->compare($name,$this->$name,trim($params[1]));
+                      else
+                        $criteria->compare($name,$this->$name); 
+                   }
+                }
+                
+                if(is_array($filter) && count($filter)>0){
+                    foreach($filter as $key=>$value){
+                        $condition= $key."='$value'";
+                        $criteria->addCondition($condition);
+                    }   
+                }
+                $criteria->order = " id desc ";
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
+        
+         function __call($method,$args){
+           
+            if($method=="getLink"){
+               
+                ServiceComponent::getValue($this,$args);
+            }
+           
+        }
+        
+         public function getAjaxButtons(){
+            
+           $update_url = Yii::app()->createAbsoluteUrl("automated/update");
+           $gridid = "Users_manageusers";
+           $hybridgridid = "hybridgrid-".$gridid; 
+           $update_view = "Users_edit";
+           $view_url = Yii::app()->createAbsoluteUrl("automated/view");
+           $model = "Users";
+           $delete_url = Yii::app()->createAbsoluteUrl("automated/delete");
+           
+           $update = CHtml::link(CHtml::image("images/update.png","update"),"#hybrid", array('onClick'=>"hyBridGrid('$update_url','$hybridgridid','$update_view',$this->id);"));
+
+           $view = CHtml::link(CHtml::image("images/view.png","view"),"#hybrid", array('onClick'=>"hyBridGrid('$view_url','$hybridgridid','$model',$this->id);"));
+          
+           // the link that may open the dialog
+           $delete = CHtml::link(CHtml::image("images/delete.png","delete"), '#', array(
+               'onclick'=>'$("#dialog-id").dialog("open"); deleteDialogMessage("'.$delete_url.'","dialog-content","'.$model.'","'.$this->id.'"); return false;',
+            ));
+           
+           
+           echo $view.$update; //.$delete;
+            
+        }
+        
+        public function getUserID($username){
+            $user=  Users::model()->findByAttributes(array('username'=>$username));
+            if($user){
+                return $user->id;
+            }
+            else{
+                return 0;
+            }
+        }
+        
+        public function beforeSave(){
+            $this->prepareAttributes();
+            if($this->isNewRecord){
+                $this->date_added=date('Y-m-d H:i:s');
+            }
+            return true;
+        }
+        
+        public function prepareAttributes(){
+            if($this->isNewRecord){
+                $campaign_id = Yii::app()->session->get('current_campaign');
+                $campaign = Definition::model()->findByPk($campaign_id);
+                $this->user_group = "subscriber";
+                $this->fk_org_id = $campaign->fk_org_id;
+                $this->date_added = date("Y-m-d H:i:s");
+                $this->pass = md5($this->pass);
+            }
+            
+        }
+        
+        public function authorizeAdvancedUser($username){
+            $user = Users::model()->findByAttributes(array('username'=>$username));
+            if($user){
+                if($user->user_group == "administrator" || $user->user_group == "advanced" ){
+                    return true;
+                }
+                else
+                    return false;
+            }
+        }
+        
+        public function authorizeAdministratorUser($username){
+            if(Yii::app()->user->isGuest){
+                return false;
+            }
+            else{
+                $user = Users::model()->findByAttributes(array('username'=>$username));
+                if($user){
+                    if($user->user_group == "administrator"  ){
+                        return true;
+                    }
+                    else
+                        return false;
+                }
+            }
+        }
+        
+        public function getUserGroupToggle(){
+           
+                $url = Yii::app()->createAbsoluteUrl("users/elevateuser",array('id'=>$this->id));
+                $elevate = CHtml::link("^",'#',array('onClick'=>"ajaxUniversalGetRequest('$url','elevate-div_{$this->id}','id:{$this->id}');"));
+                
+                $url = Yii::app()->createAbsoluteUrl("users/delevateuser",array('id'=>$this->id));
+                $delevate = CHtml::link("<sub> v </sub>",'#',array('onClick'=>"ajaxUniversalGetRequest('$url','elevate-div_{$this->id}','id:{$this->id}');"));
+                
+                echo "<div id='elevate-div_{$this->id}'>$this->user_group &nbsp; &nbsp; $elevate &nbsp; &nbsp; $delevate </div>";
+           
+        }
+        public function getUserGroupToggleLinks(){
+           
+                $url = Yii::app()->createAbsoluteUrl("users/elevateuser",array('id'=>$this->id));
+                $elevate = CHtml::link("^",'#',array('onClick'=>"ajaxUniversalGetRequest('$url','elevate-div_{$this->id}','id:{$this->id}');"));
+                
+                $url = Yii::app()->createAbsoluteUrl("users/delevateuser",array('id'=>$this->id));
+                $delevate = CHtml::link("<sub> v </sub>",'#',array('onClick'=>"ajaxUniversalGetRequest('$url','elevate-div_{$this->id}','id:{$this->id}');"));
+                
+                return "<div id='elevate-div_{$this->id}'>$this->user_group &nbsp; &nbsp; $elevate &nbsp; &nbsp; $delevate </div>";
+           
+        }
+        public function elevateuser(){
+            $campaign_id = Yii::app()->session->get('current_campaign');
+            $user_id = $this->id;
+            $campaignOwner = CampaignOwner::model()->findByAttributes(array('service_id'=>$campaign_id,'user_id'=>$user_id));
+            
+            if($this->user_group =="subscriber"){
+                $this->user_group = "office";
+                if(!$campaignOwner){
+                    $model = new CampaignOwner();
+                    $model->service_id = $campaign_id;
+                    $model->user_id = $user_id;
+                    $model->date_added = date("Y-m-d H:i:s");
+                    $model->save(false);
+                }
+            }
+            else if($this->user_group =="office"){
+                $this->user_group = "advanced";
+                 if(!$campaignOwner){
+                    $model = new CampaignOwner();
+                    $model->service_id = $campaign_id;
+                    $model->user_id = $user_id;
+                    $model->date_added = date("Y-m-d H:i:s");
+                    $model->save(false);
+                }
+            }
+            else{
+                $this->user_group = "subscriber";
+            }
+            $this->save(false);
+            
+            $data = $this->getUserGroupToggleLinks();
+            
+            echo CJSON::encode(array(
+                                    'div'=>$data,
+                                    ));
+           exit;
+        }
+        public function delevateuser(){
+            
+            $campaign_id = Yii::app()->session->get('current_campaign');
+            $user_id = $this->id;
+            $campaignOwner = CampaignOwner::model()->findByAttributes(array('service_id'=>$campaign_id,'user_id'=>$user_id));
+            
+            if($this->user_group =="office"){
+                $this->user_group = "subscriber";
+                if($campaignOwner){
+                    $campaignOwner->delete();
+                }
+            }
+            else if($this->user_group =="advanced"){
+                $this->user_group = "office";
+            }
+            else{
+                $this->user_group = "subscriber";
+            }
+            $this->save(false);
+            
+            $data = $this->getUserGroupToggleLinks();
+            
+            echo CJSON::encode(array(
+                                    'div'=>$data,
+                                    ));
+           exit;
+        }
+}
+

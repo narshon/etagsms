@@ -1,0 +1,246 @@
+<?xml version="1.0" ?>
+
+<project name="Project Configuration" basedir="." default="start">
+    <taskdef name="config" classname="phing.tasks.my.ProjectConfigTask" />
+
+    <target name="start" depends="REMOTE_DATABASE">
+      <config 
+              message = ""
+              name = "${name}"
+              base_path = "${base_path}"
+              gii_password = "${gii_password}"
+              db_host = "${db_host}"
+              db_database = "${db_database}"
+              db_user = "${db_user}"
+              db_password = "${db_password}"
+              dblog_host = "${dblog_host}"
+              dblog_database = "${dblog_database}"
+              dblog_user = "${dblog_user}"
+              dblog_password = "${dblog_password}"
+              admin_email = "${admin_email}"
+              domain_url = "${domain_url}"
+              log_mail_recipient = "${log_mail_recipient}"
+              project_id = "${project_id}"
+              redmine_user_id = "${redmine_user_id}"
+              remote_domain = "${remote_domain}"
+              remote_user = "${remote_user}"
+              remote_password = "${remote_password}"
+              remote_database = "${remote_database}"
+              defaultcontroller = "${defaultcontroller}"
+              debug_mode = "${debug_mode}"
+              deploy_mode = "${deploy_mode}"
+      />
+    </target>
+    <target name="REMOTE_DATABASE" depends="REMOTE_PASSWORD">
+		<property
+			name = "remote_database"
+			value	= ""
+		/>
+		<echo message="********  Default remote database loaded *************" />
+    </target>
+    <target name="REMOTE_PASSWORD" depends="REMOTE_USER">
+		<property
+			name = "remote_password"
+			value	= ""
+		/>
+		<echo message="********  Default remote password loaded *************" />
+    </target>
+    <target name="REMOTE_USER" depends="REMOTE_DOMAIN">
+		<property
+			name = "remote_user"
+			value	= ""
+		/>
+		<echo message="********  Default remote user loaded *************" />
+    </target>
+    <target name="REMOTE_DOMAIN" depends="REDMINE_USER_ID">
+		<property
+			name = "remote_domain"
+			value	= ""
+		/>
+		<echo message="********  Default remote domain loaded *************" />
+    </target>
+    <target name="REDMINE_USER_ID" depends="PROJECT_ID">
+		<property
+			name = "redmine_user_id"
+			value	= "15"
+		/>
+		<echo message="********  Default redmine_user_id loaded *************" />
+    </target>
+    <target name="PROJECT_ID" depends="LOG_MAIL_RECIPIENT">
+		<property
+			name = "project_id"
+			value	= "185"
+		/>
+		<echo message="********  Default project_id loaded *************" />
+    </target>
+    <target name="LOG_MAIL_RECIPIENT" depends="DOMAIN_URL">
+		<property
+			name = "log_mail_recipient"
+			value	= "nngao@kilifi.kemri-wellcome.org"
+		/>
+		<echo message="********  Default log_mail_recipient loaded *************" />
+    </target>
+    <target name="DOMAIN_URL" depends="ADMIN_EMAIL">
+		<propertyprompt
+			propertyName = "domain_url"
+			promptText	= "Enter domain url:"
+			defaultValue = "http://localhost"
+		/>
+		<if>
+			<equals arg1="${domain_url}" arg2="" trim="true" />
+			<then>
+				<fail message="domain url required" />
+			</then>
+		</if>
+    </target>
+    <target name="ADMIN_EMAIL" depends="DBLOG_PASSWORD">
+		<property
+			name = "admin_email"
+			value	= "webmaster@example.com"
+		/>
+		<echo message="********  Default admin email loaded *************" />
+    </target>
+    <target name="DBLOG_PASSWORD" depends="DBLOG_USER">
+		<propertyprompt
+			propertyName = "dblog_password"
+			promptText	= "Enter dblog password:"
+                        defaultValue = "ictP@ss"
+		/>
+		<if>
+			<equals arg1="${dblog_password}" arg2="" trim="true" />
+			<then>
+				<fail message="dblog password required" />
+			</then>
+		</if>
+    </target>
+    <target name="DBLOG_USER" depends="DBLOG_DATABASE">
+		<propertyprompt
+			propertyName = "dblog_user"
+			promptText	= "Enter dblog user:"
+                        defaultValue = "ictdev"
+		/>
+		<if>
+			<equals arg1="${dblog_user}" arg2="" trim="true" />
+			<then>
+				<fail message="dblog user required" />
+			</then>
+		</if>
+    </target>
+    <target name="DBLOG_DATABASE" depends="DBLOG_HOST">
+		<property
+			name = "dblog_database"
+			value	= "redmine"
+		/>
+		<echo message="********  Default dblog database loaded *************" />
+    </target>
+    <target name="DBLOG_HOST" depends="DB_PASSWORD">
+		<propertyprompt
+			propertyName = "dblog_host"
+			promptText	= "Enter dblog server"
+            defaultValue = "localhost"
+		/>
+		<if>
+			<equals arg1="${dblog_host}" arg2="" trim="true" />
+			<then>
+				<fail message="dblog server required" />
+			</then>
+		</if>
+    </target>
+    <target name="DB_PASSWORD" depends="DB_USER">
+		<propertyprompt
+			propertyName = "db_password"
+			promptText	= "Enter db password"
+                        defaultValue = "password"
+		/>
+		
+    </target>
+    <target name="DB_USER" depends="DB_DATABASE">
+		<propertyprompt
+			propertyName = "db_user"
+			promptText	= "Enter db user"
+                        defaultValue = "user"
+		/>
+		<if>
+			<equals arg1="${db_user}" arg2="" trim="true" />
+			<then>
+				<fail message="db user required" />
+			</then>
+		</if>
+    </target>
+    <target name="DB_DATABASE" depends="DB_HOST">
+		<propertyprompt
+			propertyName = "db_database"
+			promptText	= "Enter db database"
+            defaultValue = "etagsms"
+		/>
+		<if>
+			<equals arg1="${db_database}" arg2="" trim="true" />
+			<then>
+				<fail message="db database required" />
+			</then>
+		</if>
+    </target>
+    <target name="DB_HOST" depends="GII_PASSWORD">
+		<propertyprompt
+			propertyName = "db_host"
+			promptText	= "Enter db host"
+                        defaultValue = "localhost"
+                        
+		/>
+		<if>
+			<equals arg1="${db_host}" arg2="" trim="true" />
+			<then>
+				<fail message="db host required" />
+			</then>
+		</if>
+    </target>
+    <target name="GII_PASSWORD" depends="BASE_PATH">
+		<property
+			name = "gii_password"
+			value	= "pass"
+		/>
+		<echo message="********  Default gii password loaded *************" />
+    </target>
+    <target name="BASE_PATH" depends="NAME">
+		<propertyprompt
+			propertyName = "base_path"
+			promptText	= "Enter base path"
+            defaultValue = "D:\\htdocs\\projectname\\protected\\"
+		/>
+		<if>
+			<equals arg1="${base_path}" arg2="" trim="true" />
+			<then>
+				<fail message="base path required" />
+			</then>
+		</if>
+    </target>
+    <target name="NAME" depends="DEFAULTCONTROLLER" >
+		<property
+			name = "name"
+			value	= "Project Name"
+		/>
+		<echo message="********  Default name loaded *************" />
+    </target>
+    <target name="DEFAULTCONTROLLER" depends="DEBUG_MODE" >
+		<property
+			name = "defaultcontroller"
+			value	= "Controls/admin"
+		/>
+		<echo message="********  Default controller loaded *************" />
+    </target>
+    <target name="DEBUG_MODE"  depends="DEPLOY_MODE">
+		<property
+			name = "debug_mode"
+			value	= "0"
+		/>
+		<echo message="********  Default debug mode loaded *************" />
+    </target>
+    <target name="DEPLOY_MODE" >
+		<property
+			name = "deploy_mode"
+			value	= "launch"
+		/>
+		<echo message="********  Default debug mode loaded *************" />
+    </target>
+    
+</project>

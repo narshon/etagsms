@@ -1,0 +1,22 @@
+<?php
+$this->breadcrumbs=array(
+	'Content Outs'=>array('index'),
+	$model->id,
+);
+
+//show portlets for this service
+$this->portlet[]=array(
+	//array('label'=>'List ContentOut', 'url'=>array('index')),
+	//array('label'=>'Add ContentOut', 'url'=>array("automated/create", 'view'=>'ContentOut_form')),
+	array('label'=>'Update ContentOut', 'url'=>array('automated/update', 'view'=>'ContentOut_form', 'id'=>$model->id)),
+	array('label'=>'Delete ContentOut', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Manage ContentOut', 'url'=>array('admin')),
+);
+array_push($this->portlet_title,"Operations");
+//array_push($this->portlet_render,"portlet_full");
+
+$this->service=new ServiceComponent($this,"ContentOut");
+// details view
+$this->service->showDetailView("","ContentOut_detail",$model->id);
+
+?>

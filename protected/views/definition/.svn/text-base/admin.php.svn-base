@@ -1,0 +1,9 @@
+<?php
+$this->breadcrumbs=array(
+	'Definitions'=>array('index'),
+	'Manage',
+);
+
+$filter = array('id'=>$model_id);
+$this->service=new ServiceComponent($this,"Definition");
+$this->service->showHybridGridView("","Definition_hybridgrid",$filter);

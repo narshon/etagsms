@@ -1,0 +1,161 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/etagsms/!svn/ver/8/branch/protected/models
+END
+CampaignOwner.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/etagsms/!svn/ver/4/branch/protected/models/CampaignOwner.php
+END
+LoginForm.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/etagsms/!svn/ver/4/branch/protected/models/LoginForm.php
+END
+Organisation.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/etagsms/!svn/ver/6/branch/protected/models/Organisation.php
+END
+ContentReplies.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/etagsms/!svn/ver/4/branch/protected/models/ContentReplies.php
+END
+Alerter.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/etagsms/!svn/ver/4/branch/protected/models/Alerter.php
+END
+ContentIn.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/etagsms/!svn/ver/22/branch/protected/models/ContentIn.php
+END
+Users.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/etagsms/!svn/ver/6/branch/protected/models/Users.php
+END
+ContentOut.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/etagsms/!svn/ver/22/branch/protected/models/ContentOut.php
+END
+Broadcast.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/etagsms/!svn/ver/6/branch/protected/models/Broadcast.php
+END
+EmailOutgoing.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/etagsms/!svn/ver/7/branch/protected/models/EmailOutgoing.php
+END
+Subscriber.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/etagsms/!svn/ver/22/branch/protected/models/Subscriber.php
+END
+KunenaTopics.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/etagsms/!svn/ver/22/branch/protected/models/KunenaTopics.php
+END
+KunenaMessages.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/etagsms/!svn/ver/22/branch/protected/models/KunenaMessages.php
+END
+EmailIncoming.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/etagsms/!svn/ver/7/branch/protected/models/EmailIncoming.php
+END
+ProcessHandler.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/etagsms/!svn/ver/22/branch/protected/models/ProcessHandler.php
+END
+Ozekimessagein.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/etagsms/!svn/ver/6/branch/protected/models/Ozekimessagein.php
+END
+Process.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/etagsms/!svn/ver/22/branch/protected/models/Process.php
+END
+Ozekimessageout.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/etagsms/!svn/ver/22/branch/protected/models/Ozekimessageout.php
+END
+SmsOutgoing.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/etagsms/!svn/ver/22/branch/protected/models/SmsOutgoing.php
+END
+KunenaMessagesText.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/etagsms/!svn/ver/22/branch/protected/models/KunenaMessagesText.php
+END
+ContactForm.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/etagsms/!svn/ver/4/branch/protected/models/ContactForm.php
+END
+KunenaAliases.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/etagsms/!svn/ver/22/branch/protected/models/KunenaAliases.php
+END
+Queue.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/etagsms/!svn/ver/6/branch/protected/models/Queue.php
+END
+SmsIncoming.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/etagsms/!svn/ver/7/branch/protected/models/SmsIncoming.php
+END
+KunenaCategories.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/etagsms/!svn/ver/22/branch/protected/models/KunenaCategories.php
+END
+Definition.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/etagsms/!svn/ver/22/branch/protected/models/Definition.php
+END

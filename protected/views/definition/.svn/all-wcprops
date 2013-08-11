@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/etagsms/!svn/ver/6/branch/protected/views/definition
+END
+_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/etagsms/!svn/ver/4/branch/protected/views/definition/_view.php
+END
+content.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/etagsms/!svn/ver/6/branch/protected/views/definition/content.php
+END
+view.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/etagsms/!svn/ver/4/branch/protected/views/definition/view.php
+END
+manageusers.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/etagsms/!svn/ver/6/branch/protected/views/definition/manageusers.php
+END
+panel.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/etagsms/!svn/ver/4/branch/protected/views/definition/panel.php
+END
+_form.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/etagsms/!svn/ver/4/branch/protected/views/definition/_form.php
+END
+update.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/etagsms/!svn/ver/4/branch/protected/views/definition/update.php
+END
+create.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/etagsms/!svn/ver/4/branch/protected/views/definition/create.php
+END
+_search.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/etagsms/!svn/ver/4/branch/protected/views/definition/_search.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/etagsms/!svn/ver/6/branch/protected/views/definition/index.php
+END
+admin.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/etagsms/!svn/ver/6/branch/protected/views/definition/admin.php
+END

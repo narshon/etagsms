@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/etagsms/!svn/ver/4/branch/protected/modules/auditTrail/migrations
+END
+m110517_155003_create_tables_audit_trail.php
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/etagsms/!svn/ver/4/branch/protected/modules/auditTrail/migrations/m110517_155003_create_tables_audit_trail.php
+END

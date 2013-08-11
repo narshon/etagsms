@@ -1,0 +1,9 @@
+<?php
+$this->breadcrumbs=array(
+	'Subscribers'=>array('index'),
+	'Manage',
+);
+$filter = array('service_id'=>$model_id);
+$this->service=new ServiceComponent($this,"Subscriber");
+$this->service->showHybridGridView("Manage Subscribers","Subscriber_hybridgrid",$filter);
+

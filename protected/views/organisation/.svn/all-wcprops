@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/etagsms/!svn/ver/6/branch/protected/views/organisation
+END
+_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/etagsms/!svn/ver/6/branch/protected/views/organisation/_view.php
+END
+view.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/etagsms/!svn/ver/6/branch/protected/views/organisation/view.php
+END
+_form.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/etagsms/!svn/ver/6/branch/protected/views/organisation/_form.php
+END
+update.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/etagsms/!svn/ver/6/branch/protected/views/organisation/update.php
+END
+create.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/etagsms/!svn/ver/6/branch/protected/views/organisation/create.php
+END
+_search.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/etagsms/!svn/ver/6/branch/protected/views/organisation/_search.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/etagsms/!svn/ver/6/branch/protected/views/organisation/index.php
+END
+admin.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/etagsms/!svn/ver/6/branch/protected/views/organisation/admin.php
+END

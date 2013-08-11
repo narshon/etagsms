@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/etagsms/!svn/ver/4/branch/protected/data
+END
+schema.mysql.sql
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/etagsms/!svn/ver/4/branch/protected/data/schema.mysql.sql
+END
+testdrive.db
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/etagsms/!svn/ver/4/branch/protected/data/testdrive.db
+END
+schema.sqlite.sql
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/etagsms/!svn/ver/4/branch/protected/data/schema.sqlite.sql
+END

@@ -1,0 +1,10 @@
+<p>&nbsp;</p>
+<h3> <?php echo Definition::showCampaignTitle(); ?></h3>
+<?php
+$id=Yii::app()->session->get('current_campaign');
+$filter = array('service_id'=>$id,'flag'=>1);
+$this->service=new ServiceComponent($this,"Subscriber");
+$this->service->showGridView("","Subscriber_monocast",$filter);
+
+?>
+<div id="monocast-send-div"></div>

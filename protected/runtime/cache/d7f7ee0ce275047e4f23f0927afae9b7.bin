@@ -1,0 +1,1 @@
+a:2:{i:0;a:1:{i:0;a:6:{s:2:"id";s:2:"17";s:8:"model_id";s:2:"95";s:13:"relation_name";s:10:"groupPerms";s:13:"relation_type";s:14:"self::HAS_MANY";s:13:"related_model";s:10:"GroupPerms";s:13:"foreign_field";s:7:"perm_id";}}i:1;N;}

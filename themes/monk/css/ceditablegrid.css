@@ -1,0 +1,86 @@
+.grid-view{
+     width: 100%;
+}
+#table {
+    width:100%;
+    background: white;
+    border-collapse: collapse;
+    border: 1px #D0E3EF solid;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-cell{
+    
+    float:left;
+   /* width:50px;  */
+    text-align: center;
+    background-color: #314D8C; 
+    color: #ffffff;
+   border-style:solid;
+   border-width:1px;
+   
+}
+
+.header-cell a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.data-td{
+    float:left;
+    height:24px;  
+    text-align: center;
+    border-color: #ffffff;
+    border-style:solid;
+    border-width:1px;
+  
+}
+.even{
+    background:  #F8F8F8;
+}
+.odd{
+    background:  #E4EBED;
+    
+}
+.anchor {
+        color: #000000;
+}
+
+a:active {
+  /*  background-color: #000000;  */
+  /*  color:#ffffFF;   */
+} 
+/*
+a:link {color:#FF0000;}     
+a:visited {color:#00FF00;}  
+a:hover {color:#FF00FF;} 
+a:active {color:#0000FF;}  
+*/
+.tbody{
+    clear:left;
+}
+.tr-clear{
+    clear:left;
+}
+
+.textfield{
+   /* border-style: none;  */
+   /* background-color: inherit;  */
+}
+
+#uni_div{
+    width:100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #314D8C;
+    color:#ffffff;
+    text-align: center;
+}
+#uni_div a{
+    text-decoration: none;
+    text-align: center;
+    color:#ffffff;
+}
+
+

@@ -1,0 +1,132 @@
+2013/02/26 10:00:24 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in D:\htdocs\yii-1.1.8-config\framework\db\CDbConnection.php:364
+Stack trace:
+#0 D:\htdocs\yii-1.1.8-config\framework\db\CDbConnection.php(313): CDbConnection->open()
+#1 D:\htdocs\yii-1.1.8-config\framework\db\CDbConnection.php(291): CDbConnection->setActive(true)
+#2 D:\htdocs\yii-1.1.8-config\framework\base\CModule.php(372): CDbConnection->init()
+#3 D:\htdocs\yii-1.1.8-config\framework\base\CModule.php(86): CModule->getComponent('metadb')
+#4 D:\htdocs\yii-1.1.8-config\framework\extensions\MetaActiveRecord.php(56): CModule->__get('metadb')
+#5 D:\htdocs\yii-1.1.8-config\framework\db\ar\CActiveRecord.php(2275): MetaActiveRecord->getDbConnection()
+#6 D:\htdocs\yii-1.1.8-config\framework\db\ar\CActiveRecord.php(372): CActiveRecordMetaData->__construct(Object(Service))
+#7 D:\htdocs\yii-1.1.8-config\framework\extensions\configuration\models\Service.php(89): CActiveRecord::model('Service')
+#8 D:\htdocs\yii-1.1.8-config\framework\extensions\configuration\components\ServiceComponent.php(25): Service::model()
+#9 D:\htdocs\yii-1.1.8-config\framework\extensions\configuration\components\ServiceComponent.php(21): ServiceComponent->setService('Subscriber', 'etagsms')
+#10 D:\htdocs\etagsms\protected\controllers\SubscriberController.php(39): ServiceComponent->__construct(Object(SubscriberController), 'Subscriber')
+#11 D:\htdocs\yii-1.1.8-config\framework\web\CController.php(1143): SubscriberController->accessRules()
+#12 D:\htdocs\yii-1.1.8-config\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\htdocs\yii-1.1.8-config\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\htdocs\yii-1.1.8-config\framework\web\CController.php(283): CFilterChain->run()
+#15 D:\htdocs\yii-1.1.8-config\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\htdocs\yii-1.1.8-config\framework\web\CWebApplication.php(277): CController->run('home')
+#17 D:\htdocs\yii-1.1.8-config\framework\web\CWebApplication.php(136): CWebApplication->runController('')
+#18 D:\htdocs\yii-1.1.8-config\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#19 D:\htdocs\etagsms\index.php(15): CApplication->run()
+#20 {main} REQUEST_URI=/etagsms/
+2013/02/26 10:01:12 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in D:\htdocs\yii-1.1.8-config\framework\db\CDbConnection.php:364
+Stack trace:
+#0 D:\htdocs\yii-1.1.8-config\framework\db\CDbConnection.php(313): CDbConnection->open()
+#1 D:\htdocs\yii-1.1.8-config\framework\db\CDbConnection.php(291): CDbConnection->setActive(true)
+#2 D:\htdocs\yii-1.1.8-config\framework\base\CModule.php(372): CDbConnection->init()
+#3 D:\htdocs\yii-1.1.8-config\framework\base\CModule.php(86): CModule->getComponent('dblog')
+#4 D:\htdocs\yii-1.1.8-config\framework\logging\CAuthenticationLogger.php(17): CModule->__get('dblog')
+#5 D:\htdocs\yii-1.1.8-config\framework\extensions\UserIdentity.php(68): CAuthenticationLogger::Log('admin attempted...', 'admin failed to...')
+#6 D:\htdocs\yii-1.1.8-config\framework\extensions\LoginForm.php(52): UserIdentity->authenticate()
+#7 D:\htdocs\yii-1.1.8-config\framework\validators\CInlineValidator.php(39): LoginForm->authenticate('password', Array)
+#8 D:\htdocs\yii-1.1.8-config\framework\validators\CValidator.php(195): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#9 D:\htdocs\yii-1.1.8-config\framework\base\CModel.php(152): CValidator->validate(Object(LoginForm), NULL)
+#10 D:\htdocs\etagsms\protected\controllers\SiteController.php(102): CModel->validate()
+#11 D:\htdocs\yii-1.1.8-config\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#12 D:\htdocs\yii-1.1.8-config\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#13 D:\htdocs\yii-1.1.8-config\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#14 D:\htdocs\yii-1.1.8-config\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\htdocs\yii-1.1.8-config\framework\web\CWebApplication.php(277): CController->run('login')
+#16 D:\htdocs\yii-1.1.8-config\framework\web\CWebApplication.php(136): CWebApplication->runController('site/login')
+#17 D:\htdocs\yii-1.1.8-config\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#18 D:\htdocs\etagsms\index.php(15): CApplication->run()
+#19 {main} REQUEST_URI=/etagsms/index.php?r=site/login
+2013/02/26 13:57:26 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'etagsms.tbl_user_groups' doesn't exist. The SQL statement executed was: SELECT DATABASE() as db FROM tbl_user_groups LIMIT 1.
+in D:\htdocs\etagsms\protected\controllers\SiteController.php (116)
+in D:\htdocs\etagsms\index.php (15)
+2013/02/26 13:57:26 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'etagsms.tbl_user_groups' doesn't exist. The SQL statement executed was: SELECT DATABASE() as db FROM tbl_user_groups LIMIT 1.
+in D:\htdocs\etagsms\protected\controllers\SiteController.php (116)
+in D:\htdocs\etagsms\index.php (15)
+2013/02/26 13:57:26 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'etagsms.tbl_user_groups' doesn't exist. The SQL statement executed was: SELECT DATABASE() as db FROM tbl_user_groups LIMIT 1.
+in D:\htdocs\etagsms\protected\controllers\SiteController.php (116)
+in D:\htdocs\etagsms\index.php (15)
+2013/02/26 13:57:48 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT COUNT(id), CONCAT(MONTH(sms_datetime),.
+in D:\htdocs\etagsms\protected\controllers\SiteController.php (49)
+in D:\htdocs\etagsms\index.php (15)
+2013/02/26 13:57:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT COUNT(id), CONCAT(MONTH(sms_datetime),' in D:\htdocs\yii-1.1.8-config\framework\db\CDbCommand.php:516
+Stack trace:
+#0 D:\htdocs\yii-1.1.8-config\framework\db\CDbCommand.php(374): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\htdocs\etagsms\protected\controllers\SiteController.php(49): CDbCommand->queryAll()
+#2 D:\htdocs\yii-1.1.8-config\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#3 D:\htdocs\yii-1.1.8-config\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#4 D:\htdocs\yii-1.1.8-config\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 D:\htdocs\yii-1.1.8-config\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\htdocs\yii-1.1.8-config\framework\web\CWebApplication.php(277): CController->run('index')
+#7 D:\htdocs\yii-1.1.8-config\framework\web\CWebApplication.php(136): CWebApplication->runController('site/index')
+#8 D:\htdocs\yii-1.1.8-config\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#9 D:\htdocs\etagsms\index.php(15): CApplication->run()
+#10 {main} REQUEST_URI=/etagsms/index.php?r=site/index
+2013/02/26 16:14:53 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT COUNT(id), CONCAT(MONTH(sms_datetime),.
+in D:\htdocs\etagsms\protected\controllers\SiteController.php (84)
+in D:\htdocs\etagsms\index.php (15)
+2013/02/26 16:14:53 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT COUNT(id), CONCAT(MONTH(sms_datetime),' in D:\htdocs\yii-1.1.8-config\framework\db\CDbCommand.php:516
+Stack trace:
+#0 D:\htdocs\yii-1.1.8-config\framework\db\CDbCommand.php(374): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\htdocs\etagsms\protected\controllers\SiteController.php(84): CDbCommand->queryAll()
+#2 D:\htdocs\yii-1.1.8-config\framework\web\actions\CInlineAction.php(50): SiteController->actionCharts()
+#3 D:\htdocs\yii-1.1.8-config\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#4 D:\htdocs\yii-1.1.8-config\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 D:\htdocs\yii-1.1.8-config\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\htdocs\yii-1.1.8-config\framework\web\CWebApplication.php(277): CController->run('charts')
+#7 D:\htdocs\yii-1.1.8-config\framework\web\CWebApplication.php(136): CWebApplication->runController('site/charts')
+#8 D:\htdocs\yii-1.1.8-config\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#9 D:\htdocs\etagsms\index.php(15): CApplication->run()
+#10 {main} REQUEST_URI=/etagsms/index.php?r=site/charts&FCTime=376
+2013/02/26 16:16:04 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT COUNT(id) as count, CONCAT(MONTH(sms_datetime),.
+in D:\htdocs\etagsms\protected\controllers\SiteController.php (84)
+in D:\htdocs\etagsms\index.php (15)
+2013/02/26 16:16:04 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT COUNT(id) as count, CONCAT(MONTH(sms_datetime),' in D:\htdocs\yii-1.1.8-config\framework\db\CDbCommand.php:516
+Stack trace:
+#0 D:\htdocs\yii-1.1.8-config\framework\db\CDbCommand.php(374): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\htdocs\etagsms\protected\controllers\SiteController.php(84): CDbCommand->queryAll()
+#2 D:\htdocs\yii-1.1.8-config\framework\web\actions\CInlineAction.php(50): SiteController->actionCharts()
+#3 D:\htdocs\yii-1.1.8-config\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#4 D:\htdocs\yii-1.1.8-config\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 D:\htdocs\yii-1.1.8-config\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\htdocs\yii-1.1.8-config\framework\web\CWebApplication.php(277): CController->run('charts')
+#7 D:\htdocs\yii-1.1.8-config\framework\web\CWebApplication.php(136): CWebApplication->runController('site/charts')
+#8 D:\htdocs\yii-1.1.8-config\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#9 D:\htdocs\etagsms\index.php(15): CApplication->run()
+#10 {main} REQUEST_URI=/etagsms/index.php?r=site/charts&FCTime=177
+2013/02/26 16:55:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "mainpage/index".' in D:\htdocs\yii-1.1.8-config\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\htdocs\yii-1.1.8-config\framework\web\CWebApplication.php(136): CWebApplication->runController('mainpage/index')
+#1 D:\htdocs\yii-1.1.8-config\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\htdocs\etagsms\index.php(15): CApplication->run()
+#3 {main} REQUEST_URI=/etagsms/index.php?r=mainpage/index
+2013/02/26 17:00:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "mainpage/index".' in D:\htdocs\yii-1.1.8-config\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\htdocs\yii-1.1.8-config\framework\web\CWebApplication.php(136): CWebApplication->runController('mainpage/index')
+#1 D:\htdocs\yii-1.1.8-config\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\htdocs\etagsms\index.php(15): CApplication->run()
+#3 {main} REQUEST_URI=/etagsms/index.php?r=mainpage/index
+2013/02/26 17:10:19 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: 
+                    SELECT COUNT(id) AS COUNT, CONCAT(MONTH(sms_datetime),.
+in D:\htdocs\etagsms\protected\controllers\SiteController.php (86)
+in D:\htdocs\etagsms\index.php (15)
+2013/02/26 17:10:19 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: 
+                    SELECT COUNT(id) AS COUNT, CONCAT(MONTH(sms_datetime),' in D:\htdocs\yii-1.1.8-config\framework\db\CDbCommand.php:516
+Stack trace:
+#0 D:\htdocs\yii-1.1.8-config\framework\db\CDbCommand.php(374): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\htdocs\etagsms\protected\controllers\SiteController.php(86): CDbCommand->queryAll()
+#2 D:\htdocs\yii-1.1.8-config\framework\web\actions\CInlineAction.php(50): SiteController->actionCharts()
+#3 D:\htdocs\yii-1.1.8-config\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#4 D:\htdocs\yii-1.1.8-config\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 D:\htdocs\yii-1.1.8-config\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\htdocs\yii-1.1.8-config\framework\web\CWebApplication.php(277): CController->run('charts')
+#7 D:\htdocs\yii-1.1.8-config\framework\web\CWebApplication.php(136): CWebApplication->runController('site/charts')
+#8 D:\htdocs\yii-1.1.8-config\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#9 D:\htdocs\etagsms\index.php(15): CApplication->run()
+#10 {main} REQUEST_URI=/etagsms/index.php?r=site/charts&FCTime=207

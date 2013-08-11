@@ -1,0 +1,256 @@
+<?php
+
+class ContentOutController extends Controller
+{
+	/**
+	 * @var string the default layout for the views. Defaults to '//layouts/column3', meaning
+	 * using three-column layout. See 'protected/views/layouts/column3.php'.
+	 */
+	public $layout='//layouts/column2';
+        public $portlet=array();
+        public $portlet_title=array();
+        public $portlet_render=array();
+        
+        public $portletRight=array();
+        public $portletRight_title=array();
+        public $portletRight_render=array();
+        
+        public $service;
+
+	/**
+	 * @return array action filters
+	 */
+	public function filters()
+	{
+		return array(
+			'accessControl', // perform access control for CRUD operations
+		);
+	}
+
+	/**
+	 * Specifies the access control rules.
+	 * This method is used by the 'accessControl' filter.
+	 * @return array access control rules
+	 */
+	public function accessRules()
+	{       
+                $this->service=new ServiceComponent($this,"ContentOut");
+                //$sc->showAll();
+                
+                $adminusers=array();
+                 array_push($adminusers, 'admin');
+                
+		return array(
+			array('allow',  // allow all users to perform 'index' and 'view' actions
+				'actions'=>array('index','view'),
+				'users'=>array('*'),
+			),
+			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions'=>array('create','update','resend','forumpost'),
+				'users'=>array('@'),
+			),
+			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+				'actions'=>array('admin','delete'),
+				'users'=>$adminusers,
+			),
+			array('deny',  // deny all users
+				'users'=>array('*'),
+			),
+		);
+	}
+        public function actionForumpost($string){
+            $stringArray = WidgetHelper::explode_assoc($string, array('_',':'));
+            //post to forum message
+            $contentOut = KunenaMessages::model()->postOutMessage($stringArray['id']);
+            if($contentOut){
+                $contentOut->updatePost();
+            }
+            else{
+                echo CJSON::encode(array( 'div'=>'Not Posted'));
+            }
+        }
+        public function actionresend($string){
+            $stringArray=WidgetHelper::explode_assoc($string, array(',',':'));
+            $process = Process::model()->findByPk($stringArray['process_id']);
+            if($process){
+                $msgObject =  SmsOutgoing::model()->findByPk($stringArray['msg_id']);
+                $outmsg = SmsOutgoing::model()->sendSMS($process, $stringArray['subscriber_id'],$msgObject->msg,'Resent');
+                
+                echo CJSON::encode(array(
+                                     
+                                    'div'=>"Message Resent"
+                                    ));
+                exit; 
+            }
+        }
+
+	/**
+	 * Displays a particular model.
+	 * @param integer $id the ID of the model to be displayed
+	 */
+	public function actionView($id)
+	{
+		$this->render('view',array(
+			'model'=>$this->loadModel($id),
+		));
+	}
+
+	/**
+	 * Creates a new model.
+	 * If creation is successful, the browser will be redirected to the 'view' page.
+	 */
+	public function actionCreate()
+	{
+		$model=new ContentOut;
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['ContentOut']))
+		{
+			$model->attributes=$_POST['ContentOut'];
+			if($model->save()){
+                            if (Yii::app()->request->isAjaxRequest)
+                            {
+                                echo CJSON::encode(array(
+                                    'status'=>'success', 
+                                    'div'=>"Grades successfully added"
+                                    ));
+                                exit;               
+                            }
+                            else
+                                $this->redirect(array('view','id'=>$model->id));
+                        }
+				
+		}
+                
+                if (Yii::app()->request->isAjaxRequest)
+                 {
+                    echo CJSON::encode(array(
+                        'status'=>'failure', 
+                        'div'=>$this->renderPartial('_form', array('model'=>$model), true)));
+                    exit;               
+                 }
+                 else
+                    $this->render('create',array('model'=>$model,));
+		
+	}
+
+	/**
+	 * Updates a particular model.
+	 * If update is successful, the browser will be redirected to the 'view' page.
+	 * @param integer $id the ID of the model to be updated
+	 */
+	public function actionUpdate($id, $row=0)
+	{
+		$model=$this->loadModel($id);
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['ContentOut']))
+		{
+			$model->attributes=$_POST['ContentOut'];
+			if($model->save()){
+                             if (Yii::app()->request->isAjaxRequest)
+                            {
+                                $string = $this->service->ajaxResetValidationFields($model,$row);
+                                echo CJSON::encode(array(
+                                        'div'=>$string."<br/> <p style='color:green'> Record successfully saved! </p>",
+                                        ));
+                                exit;                 
+                            }
+                            else
+                                $this->redirect(array('view','id'=>$model->id));
+                        
+                        }
+				
+		}
+
+		if (Yii::app()->request->isAjaxRequest)
+                 {
+                    $string = $this->service->ajaxResetValidationFields($model,$row);
+                    $string .= $this->service->ajaxShowValidationErrors($model,$row);
+                    
+                    echo CJSON::encode(array(
+                                        'div'=>$string,
+                                        ));
+                    exit;             
+                 }
+                 else
+		   $this->render('update',array('model'=>$model ));
+	}
+
+	/**
+	 * Deletes a particular model.
+	 * If deletion is successful, the browser will be redirected to the 'admin' page.
+	 * @param integer $id the ID of the model to be deleted
+	 */
+	public function actionDelete($id)
+	{
+		if(Yii::app()->request->isPostRequest)
+		{
+			// we only allow deletion via POST request
+			$this->loadModel($id)->delete();
+
+			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+			if(!isset($_GET['ajax']))
+				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		}
+		else
+			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
+	}
+
+	/**
+	 * Lists all models.
+	 */
+	public function actionIndex()
+	{
+		$dataProvider=new CActiveDataProvider('ContentOut');
+		$this->render('index',array(
+			'dataProvider'=>$dataProvider,
+		));
+	}
+
+	/**
+	 * Manages all models.
+	 */
+	public function actionAdmin()
+	{
+		$model=new ContentOut('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['ContentOut']))
+			$model->attributes=$_GET['ContentOut'];
+
+		$this->render('admin',array(
+			'model'=>$model,
+		));
+	}
+
+	/**
+	 * Returns the data model based on the primary key given in the GET variable.
+	 * If the data model is not found, an HTTP exception will be raised.
+	 * @param integer the ID of the model to be loaded
+	 */
+	public function loadModel($id)
+	{
+		$model=ContentOut::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
+	}
+
+	/**
+	 * Performs the AJAX validation.
+	 * @param CModel the model to be validated
+	 */
+	protected function performAjaxValidation($model)
+	{
+		if(isset($_POST['ajax']) && $_POST['ajax']==='content-out-form')
+		{
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}
+	}
+}
+

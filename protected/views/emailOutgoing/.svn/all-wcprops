@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/etagsms/!svn/ver/4/branch/protected/views/emailOutgoing
+END
+_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/etagsms/!svn/ver/4/branch/protected/views/emailOutgoing/_view.php
+END
+view.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/etagsms/!svn/ver/4/branch/protected/views/emailOutgoing/view.php
+END
+_form.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/etagsms/!svn/ver/4/branch/protected/views/emailOutgoing/_form.php
+END
+update.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/etagsms/!svn/ver/4/branch/protected/views/emailOutgoing/update.php
+END
+create.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/etagsms/!svn/ver/4/branch/protected/views/emailOutgoing/create.php
+END
+_search.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/etagsms/!svn/ver/4/branch/protected/views/emailOutgoing/_search.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/etagsms/!svn/ver/4/branch/protected/views/emailOutgoing/index.php
+END
+admin.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/etagsms/!svn/ver/4/branch/protected/views/emailOutgoing/admin.php
+END

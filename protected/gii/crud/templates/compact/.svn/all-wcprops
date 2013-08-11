@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/etagsms/!svn/ver/6/branch/protected/gii/crud/templates/compact
+END
+_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/etagsms/!svn/ver/4/branch/protected/gii/crud/templates/compact/_view.php
+END
+view.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/etagsms/!svn/ver/4/branch/protected/gii/crud/templates/compact/view.php
+END
+_form.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/etagsms/!svn/ver/4/branch/protected/gii/crud/templates/compact/_form.php
+END
+update.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/etagsms/!svn/ver/4/branch/protected/gii/crud/templates/compact/update.php
+END
+controller.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/etagsms/!svn/ver/6/branch/protected/gii/crud/templates/compact/controller.php
+END
+create.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/etagsms/!svn/ver/4/branch/protected/gii/crud/templates/compact/create.php
+END
+_search.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/etagsms/!svn/ver/4/branch/protected/gii/crud/templates/compact/_search.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/etagsms/!svn/ver/4/branch/protected/gii/crud/templates/compact/index.php
+END
+admin.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/etagsms/!svn/ver/4/branch/protected/gii/crud/templates/compact/admin.php
+END

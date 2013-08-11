@@ -1,0 +1,6 @@
+<?php
+ 
+$org_id=  Definition::model()->getOrganisationID();
+$filter = array('fk_org_id'=>$org_id);
+$this->service=new ServiceComponent($this,"Users");
+$this->service->showHybridGridView(" Manage Users","Users_manageusers", $filter);

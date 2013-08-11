@@ -1,0 +1,84 @@
+10
+
+dir
+0
+https://keklf-lt0318-l.kwtrp.org/svn/etagsms/branch/protected/views/messagein
+https://keklf-lt0318-l.kwtrp.org/svn/etagsms
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+418c8642-eadb-4f46-affd-5d0fcc9799a5
+
+_view.php
+file
+
+
+
+add
+
+view.php
+file
+
+
+
+add
+
+_form.php
+file
+
+
+
+add
+
+update.php
+file
+
+
+
+add
+
+create.php
+file
+
+
+
+add
+
+_search.php
+file
+
+
+
+add
+
+index.php
+file
+
+
+
+add
+
+admin.php
+file
+
+
+
+add
+

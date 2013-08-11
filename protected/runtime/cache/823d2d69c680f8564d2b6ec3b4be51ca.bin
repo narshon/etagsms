@@ -1,0 +1,1 @@
+a:2:{i:0;a:10:{s:2:"id";s:2:"68";s:12:"service_name";s:12:"skippatterns";s:12:"service_desc";s:40:"Provides information about SkipPatterns ";s:7:"_status";s:1:"1";s:5:"model";s:12:"SkipPatterns";s:8:"model_id";N;s:8:"category";s:1:"1";s:7:"default";s:1:"0";s:10:"table_name";s:18:"meta_skip_patterns";s:7:"db_name";s:11:"etagservice";}i:1;N;}

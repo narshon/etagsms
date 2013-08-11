@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/etagsms/!svn/ver/6/branch/protected/views/users
+END
+_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/etagsms/!svn/ver/4/branch/protected/views/users/_view.php
+END
+view.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/etagsms/!svn/ver/6/branch/protected/views/users/view.php
+END
+_form.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/etagsms/!svn/ver/4/branch/protected/views/users/_form.php
+END
+update.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/etagsms/!svn/ver/4/branch/protected/views/users/update.php
+END
+create.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/etagsms/!svn/ver/4/branch/protected/views/users/create.php
+END
+_search.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/etagsms/!svn/ver/4/branch/protected/views/users/_search.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/etagsms/!svn/ver/4/branch/protected/views/users/index.php
+END
+admin.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/etagsms/!svn/ver/4/branch/protected/views/users/admin.php
+END

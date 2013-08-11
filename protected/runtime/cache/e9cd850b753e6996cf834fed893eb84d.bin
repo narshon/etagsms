@@ -1,0 +1,1 @@
+a:2:{i:0;a:10:{s:2:"id";s:2:"67";s:12:"service_name";s:16:"modelvalidations";s:12:"service_desc";s:44:"Provides information about ModelValidations ";s:7:"_status";s:1:"1";s:5:"model";s:16:"ModelValidations";s:8:"model_id";N;s:8:"category";s:1:"1";s:7:"default";s:1:"0";s:10:"table_name";s:22:"meta_model_validations";s:7:"db_name";s:11:"etagservice";}i:1;N;}

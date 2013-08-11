@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<project name="Project Build System" default="deploy-application-files" basedir=".">
+
+    <property name="server.port" value="21" />
+    <!-- <property name="server.dir" value="/mybuilds/" />  -->
+    <property name="server.mode" value="ascii" />
+	<property name="builddir" value="./build/" override="true" />
+
+    <!-- FILESETS -->
+    <fileset dir="./build" id="allfiles">
+        <include name="**" />
+	    <exclude name="*.jar" />
+		<exclude name="images/" />
+    </fileset>
+	<fileset dir="${builddir}/images" id="images">
+	     <include name="**" />
+	</fileset>
+     <target name="creat_config">
+            <phing phingfile="config.xml" inheritRefs="true"  />
+     </target>
+    <!-- FTP Host Property Target -->  
+	<target name="server_host" >
+		<propertyprompt
+			propertyName = "server.host"
+			promptText	= "Enter Server host name:"
+			defaultValue = "uat"
+		/>
+		<if>
+			<equals arg1="${server.host}" arg2="" trim="true" />
+			<then>
+				<fail message="server host required" />
+			</then>
+		</if>
+		<phingcall target="creat_config">
+        </phingcall>
+	</target>
+
+	<!-- FTP Username Property Target -->
+	<target name="server_username" depends="server_host">
+		<property
+			name = "server.username"
+			value	= "nngao"
+		/>
+		<echo message="********  Default host user name loaded *************" />
+	</target>
+	<!-- FTP Password Property Target -->
+	<target name="server_password" depends="server_username">
+		<property
+			name = "server.password"
+			value	= "monk2011"
+		/>
+		<echo message="********  Default host user password loaded *************" />
+	</target>
+	<!-- Project Directory Property Target -->
+	<target name="server_dir" depends="server_password">
+		<property
+			name = "server.dir"
+			value	= "CHANGE DIRECTORY"
+		/>
+		<echo message="********  Default server directory loaded *************" />
+	</target>
+
+    <!-- DEPLOYMENT TARGETS -->
+    <target name="deploy" depends="server_dir">
+         <phingcall target="actual-deployment">
+            <property name="deploy.fileset.refid" value="allfiles" />
+        </phingcall>
+		<phingcall target="actual-deployment">
+            <property name="deploy.fileset.refid" value="images" />
+			<property name="server.dir" value="${server.dir}/images" override="true" />
+			<property name="server.mode" value="binary" override="true" />
+        </phingcall>
+    </target>
+	<target name="actual-deployment">
+	     <echo message="Copying fileset '${deploy.fileset.refid}' to ${server.host} in ${server.mode} mode" />
+		 <echo message="${server.dir}" />
+		 
+        <ftpdeploy
+            host="${server.host}"
+            port="${server.port}"
+            username="${server.username}"
+            password="${server.password}"
+            dir="${server.dir}"
+            mode="${server.mode}"
+			clearfirst="true"
+			>
+			
+            <fileset refid="${deploy.fileset.refid}" />
+			
+        </ftpdeploy>
+	</target>
+	<target name="deploy-application-files" depends="svn_repo">
+        <echo msg="Deploying application files" />
+        <phingcall target="deploy">
+        </phingcall>
+		
+    </target>
+ 
+    <!-- load the Subversion details we defined earlier -->
+   <!-- <property file="subversion.properties" />  -->
+ 
+    <target name="deletebuilddir">
+        <delete dir="${builddir}" includeemptydirs="true"
+                verbose="false" failonerror="true" />
+    </target>
+ 
+    <target name="createbuilddir" depends="deletebuilddir">
+        <mkdir dir="${builddir}" />
+		<mkdir dir="${builddir}/assets" />
+    </target>
+ 
+    <target name="checkout" depends="createbuilddir">
+        <svncheckout
+                svnpath="C:\VisualSVN Server\bin\svn.exe"
+                username="${svn.username}"
+                password="${svn.password}"
+                force="true"
+                nocache="true"
+                repositoryurl="http://baraza:81/svn/main/${svn.repo}"
+                todir="${builddir}" />
+    </target>
+ 
+    <!-- ...more tasks to follow... -->
+	<!--   SVN Repository  -->
+	<target name="svn_repo" depends="svn_password">
+		<propertyprompt
+			propertyName = "svn.repo"
+			promptText	= "Enter svn repository:"
+		/>
+		<if>
+			<equals arg1="${svn.repo}" arg2="" trim="true" />
+			<then>
+				<fail message="SVN repository is required" />
+			</then>
+		</if>
+		<phingcall target="checkout">
+            
+        </phingcall>
+	</target>
+		<!--   SVN Repository  -->
+	<target name="svn_password" depends="svn_username">
+		<property
+			name = "svn.password"
+			value	= "monk123@$"
+		/>
+		<echo message="********  Default SVN user password loaded *************" />
+	</target>
+	<target name="svn_username" >
+		<property
+			name = "svn.username"
+			value	= "nngao"
+		/>
+		<echo message="********  Default SVN user name loaded *************" />
+	</target>
+ 
+   <!-- <target name="runci" depends="deploy-application-files" />  -->
+ 
+</project>

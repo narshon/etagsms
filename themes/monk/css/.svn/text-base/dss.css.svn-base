@@ -1,0 +1,61 @@
+
+#mainpage-title h3{
+    width: 500px;
+    padding: 20px;
+    color: #DDDDDD;
+    font-size: 20px;
+    font-weight: bolder;
+    background-color: #C29B22;
+}
+#mainpage-outer-wrapper{
+   background-color: #444444;
+   width: 570px;
+   padding: 10px;
+   margin-left: 15%;
+   margin-top: 0px;
+}
+#mainpage-wrapper{
+    background-color: #B0AEAF;
+    width: 540px;
+    padding: 15px;
+    
+}
+#mainpage-id{
+    background-color: #444444;
+    width: 540px;
+    
+    clear:both;
+}
+#mainpage-list{
+    float:left;
+    width: 400px;
+    background-color: #444444;
+}
+#mainpage-view{
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #DDDDDD;
+    
+}
+#mainpage-view a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #DDDDDD;
+}
+
+#mainpage-logos{
+    float:right;
+    margin-top: 60px;
+    margin-right:18px;
+    width: 100px;
+    background-color: #444444;
+}
+
+li census1{
+    width: 200px;
+}
+
+#dss-title{
+ width: 100%;
+ text-align: center;
+}

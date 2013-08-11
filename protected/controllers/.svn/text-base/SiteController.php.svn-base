@@ -1,0 +1,191 @@
+<?php
+
+class SiteController extends Controller
+{       
+    public $layout='//layouts/column3';
+    public $portlet=array();
+    public $portlet_title=array();
+    public $portlet_render=array();
+
+    public $portletRight=array();
+    public $portletRight_title=array();
+    public $portletRight_render=array();
+    
+    public $breadcrumbs;
+    public $service;
+    public $menu=array();
+    public $dataPortlets = array();
+    public $dataPortlets_right=array();
+    
+    /**
+	 * Specifies the access control rules.
+	 * This method is used by the 'accessControl' filter.
+	 * @return array access control rules
+	 */
+	public function accessRules()
+	{
+		return array(
+			array('allow',  // allow all users to perform 'index' and 'view' actions
+				'actions'=>array('index','view', 'charts','InboxCharts'),
+				'users'=>array('*'),
+			),
+			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions'=>array('create','update'),
+				'users'=>array('@'),
+			),
+			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+				'actions'=>array('admin','delete'),
+				'users'=>array('@'),
+			),
+			array('deny',  // deny all users
+				'users'=>array('*'),
+			),
+		);
+	}
+	/**
+	 * Declares class-based actions.
+	 */
+	public function actions()
+	{
+		return array(
+			// captcha action renders the CAPTCHA image displayed on the contact page
+			'captcha'=>array(
+				'class'=>'CCaptchaAction',
+				'backColor'=>0xFFFFFF,
+			),
+			// page action renders "static" pages stored under 'protected/views/site/pages'
+			// They can be accessed via: index.php?r=site/page&view=FileName
+			'page'=>array(
+				'class'=>'CViewAction',
+			),
+		);
+	}
+
+	/**
+	 * This is the default 'index' action that is invoked
+	 * when an action is not explicitly requested by users.
+	 */
+	public function actionIndex()
+	{
+                $current_active = Yii::app()->session->get('current_campaign');
+                
+                $data = Yii::app()->db->createCommand("
+                    SELECT COUNT(id) AS count, CONCAT(MONTH(sms_datetime), \", \", YEAR(sms_datetime)) AS duration 
+                    FROM `sms_outgoing`
+                    WHERE id IN((SELECT out_msg_id AS in_msg FROM `sys_content_out` WHERE process_id IN(SELECT id FROM sys_process WHERE `sysdef_id` = $current_active)))
+                    GROUP BY MONTH(sms_datetime) ORDER BY sms_datetime DESC LIMIT 5
+                    ")
+                    ->queryAll();
+                
+                $data = array_reverse($data, true);
+                $month_array = array();
+                $value_array = array();
+                foreach($data as $rec)
+                {      
+                        $months = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
+                        $month = explode(',', $rec['duration']);
+                        $month = $months[$month[0]-1] . ' ' . $month[1];
+                        
+                        $month_array[] = $month;
+                        $value_array[] = $rec['count'];
+                }
+                
+                
+                $received_data = Yii::app()->db->createCommand("
+                    SELECT COUNT(id) AS count, CONCAT(MONTH(sms_datetime), \", \", YEAR(sms_datetime)) AS duration 
+                    FROM `sms_outgoing`
+                    WHERE id IN((SELECT out_msg_id AS out_msg FROM `sys_content_out` WHERE process_id IN(SELECT id FROM sys_process WHERE `sysdef_id` = $current_active)))
+                    GROUP BY MONTH(sms_datetime) ORDER BY sms_datetime DESC LIMIT 5
+                    ")
+                    ->queryAll();
+                
+                $received_data = array_reverse($received_data, true);
+                $received_month_array = array();
+                $received_value_array = array();
+                foreach($received_data as $received_rec)
+                {      
+                        $received_months = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
+                        $received_month = explode(',', $received_rec['duration']);
+                        $received_month = $received_months[$received_month[0]-1] . ' ' . $received_month[1];
+                        
+                        $received_month_array[] = $received_month;
+                        $received_value_array[] = $rec['count'];
+                }                
+                                
+                // renders the view file 'protected/views/site/index.php'
+		// using the default layout 'protected/views/layouts/main.php'
+		$this->render('index', array('month_array'=> $month_array, 'value_array'=>$value_array, 
+                    'received_month_array'=> $received_month_array, 
+                    'received_value_array'=>$received_value_array
+                ));
+	}        
+        
+        /**
+	 * This is the action to handle external exceptions.
+	 */
+	public function actionError()
+	{
+	    if($error=Yii::app()->errorHandler->error)
+	    {
+	    	if(Yii::app()->request->isAjaxRequest)
+	    		echo $error['message'];
+	    	else
+	        	$this->render('error', $error);
+	    }
+	}
+
+	/**
+	 * Displays the contact page
+	 */
+	public function actionContact()
+	{
+		$model=new ContactForm;
+		if(isset($_POST['ContactForm']))
+		{
+			$model->attributes=$_POST['ContactForm'];
+			if($model->validate())
+			{
+				$headers="From: {$model->email}\r\nReply-To: {$model->email}";
+				mail(Yii::app()->params['adminEmail'],$model->subject,$model->body,$headers);
+				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
+				$this->refresh();
+			}
+		}
+		$this->render('contact',array('model'=>$model));
+	}
+
+	/**
+	 * Displays the login page
+	 */
+	public function actionLogin()
+	{
+		$model=new LoginForm;
+
+		// if it is ajax validation request
+		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
+		{
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}
+
+		// collect user input data
+		if(isset($_POST['LoginForm']))
+		{
+			$model->attributes=$_POST['LoginForm'];
+			// validate user input and redirect to the previous page if valid
+			if($model->validate() && $model->login())
+				$this->redirect(Yii::app()->user->returnUrl);
+		}
+		// display the login form
+		$this->render('login',array('model'=>$model));
+	}
+
+	/**
+	 * Logs out the current user and redirect to homepage.
+	 */
+	public function actionLogout()
+	{
+		Yii::app()->user->logout();
+		$this->redirect(Yii::app()->homeUrl);
+	}
+}

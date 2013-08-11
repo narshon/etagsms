@@ -1,0 +1,11 @@
+<?php
+$this->breadcrumbs=array(
+	'Process Handlers'=>array('index'),
+	'Manage',
+);
+
+//filter process handlers for current campaign
+$filter = Definition::model()->getProcessFilters();
+$this->service=new ServiceComponent($this,"ProcessHandler");
+$this->service->showHybridGridView("Manage Process Handlers","ProcessHandler_hybridgrid", $filter);
+
